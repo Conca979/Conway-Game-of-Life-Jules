@@ -1,0 +1,190 @@
+:root {
+    --bg-dark: #121212;
+    --bg-panel: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #aaaaaa;
+    --accent: #4caf50;
+    --accent-hover: #45a049;
+    --danger: #f44336;
+    --danger-hover: #da190b;
+    --btn-bg: #333333;
+    --btn-hover: #444444;
+    --border: #333333;
+    --grid-line: #2c2c2c;
+    --cell-alive: #4caf50;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.dashboard {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar {
+    width: 300px;
+    min-width: 300px;
+    background-color: var(--bg-panel);
+    border-right: 1px solid var(--border);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.sidebar h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--accent);
+    text-align: center;
+}
+
+.control-group {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.control-group h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 5px;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    flex: 1;
+    padding: 8px 12px;
+    background-color: var(--btn-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: var(--btn-hover);
+}
+
+button.primary {
+    background-color: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+button.primary:hover {
+    background-color: var(--accent-hover);
+}
+
+button.danger {
+    background-color: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+button.danger:hover {
+    background-color: var(--danger-hover);
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+input[type="number"], select {
+    width: 80px;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+select {
+    width: 100%;
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+.help-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.canvas-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+#statusOverlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    z-index: 10;
+    border: 1px solid var(--border);
+    pointer-events: none;
+}
+
+canvas {
+    background-color: var(--bg-panel);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: crosshair;
+    image-rendering: pixelated;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        max-height: 40vh;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+}
